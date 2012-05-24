@@ -1,0 +1,8 @@
+== LIST/DESCRIPTION OF THE FILES ==
+
+- appendmodeline.py: Append a VIm modeline to the end of the file
+- appendgpllicense.py: Append a GPL license to the first part of the file
+- prependshebang.py: Append a shebang to the beginning of the file
+
+== [T]ODO & [W]ARNINGS ==
+  * prependshebang.py: Make it more cross-platform?
