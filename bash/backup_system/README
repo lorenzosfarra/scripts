@@ -1,8 +1,10 @@
 A simple incremental backup system.
 For now, it supports netcat (in which case client.sh and server.sh are both
-required) or scp (only client.sh required).
+required) and scp (only client.sh required).
 
 The scripts are not yet completed.
 
 You have to edit these files to change configs based on your needs (you will
 find a simple guide for each field to modify).
+
+Inspired by http://sourceforge.net/projects/simplebashbu/
