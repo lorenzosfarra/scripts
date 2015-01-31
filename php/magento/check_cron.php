@@ -55,17 +55,25 @@ $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connec
   
 $result = mysqli_query($conn, "SELECT * FROM " . $tblprefix . "cron_schedule") or die (mysql_error());
 ?>  
+
+<!DOCTYPE html>
 <html>
   <head>
     <title>Crons list</title>
     <!-- Style -->
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css">
+    <style>
+      #cronstable {
+        border-spacing: 0px;
+        width: 100%;
+      }
+    </style>
     <!-- JS -->
     <script src="//code.jquery.com/jquery-1.11.1.min.js"> </script>
     <script src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"> </script>
   </head>
   <body>
-  <table id="cronstable" class="display" cellspacing="0" width="100%">
+  <table id="cronstable" class="display">
     <thead>
       <tr>
         <th>schedule_id</th>
