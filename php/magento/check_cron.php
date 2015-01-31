@@ -32,18 +32,18 @@ if (!(($_GET['username'] == $username) && ($_GET['password'] == $password))) {
 }
   
 // Parse magento's local.xml to get db info, if local.xml is found
-  
 if (file_exists('app/etc/local.xml')) {
+  $xml = simplexml_load_file('app/etc/local.xml');
   
-$xml = simplexml_load_file('app/etc/local.xml');
+  // Store the configuration in a more convenient format, a PHP array
+  $confs = Array(
+    "tblprefix" =>  $xml->global->resources->db->table_prefix,
+    "dbhost" =>  $xml->global->resources->default_setup->connection->host,
+    "dbuser" =>  $xml->global->resources->default_setup->connection->username,
+    "dbpass" =>  $xml->global->resources->default_setup->connection->password,
+    "dbname" =>  $xml->global->resources->default_setup->connection->dbname
+  );
   
-$tblprefix = $xml->global->resources->db->table_prefix;
-//$dbhost = $xml->global->resources->default_setup->connection->host;
-$dbhost = "localhost";
-$dbuser = $xml->global->resources->default_setup->connection->username;
-$dbpass = $xml->global->resources->default_setup->connection->password;
-$dbname = $xml->global->resources->default_setup->connection->dbname;
-
 }
   
 else {
@@ -51,9 +51,20 @@ else {
 }
   
 // DB Interaction
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connecting to <a class="HelpLink" onclick="showHelpTip(event, hint_id_7); return false;" href="javascript:void(0)">mysql</a>');
-  
-$result = mysqli_query($conn, "SELECT * FROM " . $tblprefix . "cron_schedule") or die (mysql_error());
+$conn = mysqli_connect($confs['dbhost'], $confs['dbuser'],
+            $confs['dbpass'], $confs['dbname']) or die ("Error connecting to the DB.");
+ // Prepare and execute the query 
+$sql  = "SELECT
+               schedule_id, 
+               job_code,
+               status,
+               messages,
+               created_at,
+               scheduled_at,
+               executed_at,
+               finished_at 
+        FROM " . $confs['tblprefix'] . "cron_schedule";
+$result = mysqli_query($conn, $sql) or die (mysql_error());
 ?>  
 
 <!DOCTYPE html>
