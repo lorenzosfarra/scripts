@@ -53,7 +53,7 @@ else {
 // DB Interaction
 $conn = mysqli_connect($confs['dbhost'], $confs['dbuser'],
             $confs['dbpass'], $confs['dbname']) or die ("Error connecting to the DB.");
- // Prepare and execute the query 
+// Prepare and execute the query 
 $sql  = "SELECT
                schedule_id, 
                job_code,
