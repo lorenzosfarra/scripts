@@ -13,6 +13,7 @@
  * them as GET params username&password.
  *
  * You can use it for free without limitations.
+ * [1] http://blog.nexcess.net/2010/10/03/finding-the-status-of-magento-cron-jobs-tasks/
  */
 
 /***** AUTHORIZATION INFO: edit this! *****/

@@ -1,4 +1,4 @@
-# What's this?
+# check_cron.php
 It's a PHP script to retrieve *Magento* cron jobs and their status. 
 
 # License
