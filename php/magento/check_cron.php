@@ -44,9 +44,7 @@ if (file_exists('app/etc/local.xml')) {
     "dbname" =>  $xml->global->resources->default_setup->connection->dbname
   );
   
-}
-  
-else {
+} else {
     exit('Failed to open app/etc/local.xml');
 }
   
