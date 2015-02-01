@@ -45,7 +45,7 @@ if (file_exists('app/etc/local.xml')) {
   );
   
 } else {
-    exit('Failed to open app/etc/local.xml');
+  exit('Failed to open app/etc/local.xml');
 }
   
 // DB Interaction
@@ -109,12 +109,13 @@ $result = mysqli_query($conn, $sql) or die (mysql_error());
           <td><?php echo $row['finished_at']; ?></td>
         </tr>
       <?php endwhile; ?>
+
       </tbody>
     </table>
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#cronstable').dataTable( {
+        $('#cronstable').dataTable({
           "order": [[ 5, "desc" ]]
         });
       });
