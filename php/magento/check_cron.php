@@ -38,7 +38,8 @@ if (file_exists('app/etc/local.xml')) {
   // Store the configuration in a more convenient format, a PHP array
   $confs = Array(
     "tblprefix" =>  $xml->global->resources->db->table_prefix,
-    "dbhost" =>  $xml->global->resources->default_setup->connection->host,
+    //"dbhost" =>  $xml->global->resources->default_setup->connection->host,
+    "dbhost" => "localhost",
     "dbuser" =>  $xml->global->resources->default_setup->connection->username,
     "dbpass" =>  $xml->global->resources->default_setup->connection->password,
     "dbname" =>  $xml->global->resources->default_setup->connection->dbname
@@ -51,17 +52,21 @@ if (file_exists('app/etc/local.xml')) {
 // DB Interaction
 $conn = mysqli_connect($confs['dbhost'], $confs['dbuser'],
             $confs['dbpass'], $confs['dbname']) or die ("Error connecting to the DB.");
+
+// Fields and labels
+$fields_labels = Array(
+  'schedule_id' => 'ID', 
+  'job_code' => 'job code',
+  'status' => 'status',
+  'messages' => 'messages',
+  'created_at' => 'created at',
+  'scheduled_at' => 'scheduled at',
+  'executed_at' => 'executed at',
+  'finished_at' => 'finished at'
+);
 // Prepare and execute the query 
-$sql  = "SELECT
-               schedule_id, 
-               job_code,
-               status,
-               messages,
-               created_at,
-               scheduled_at,
-               executed_at,
-               finished_at 
-        FROM " . $confs['tblprefix'] . "cron_schedule";
+$sql  = "SELECT " . implode(',', array_keys($fields_labels)) .
+        " FROM " . $confs['tblprefix'] . "cron_schedule";
 $result = mysqli_query($conn, $sql) or die (mysql_error());
 ?>  
 
@@ -76,6 +81,10 @@ $result = mysqli_query($conn, $sql) or die (mysql_error());
         border-spacing: 0px;
         width: 100%;
       }
+
+      th::first-letter {
+        text-transform: capitalize;
+      }
     </style>
     <!-- JS -->
     <script src="//code.jquery.com/jquery-1.11.1.min.js"> </script>
@@ -85,28 +94,18 @@ $result = mysqli_query($conn, $sql) or die (mysql_error());
   <table id="cronstable" class="display">
     <thead>
       <tr>
-        <th>schedule_id</th>
-        <th>job_code</th>
-        <th>status</th>
-        <th>messages</th>
-        <th>created_at</th>
-        <th>scheduled_at</th>
-        <th>executed_at</th>
-        <th>finished_at</th>
+        <?php foreach ($fields_labels as $field => $label) :?>
+          <th><?php echo $label; ?></th>
+        <?php endforeach; ?>
       </tr>
       </thead>
       <tbody>
     
       <?php while ($row = mysqli_fetch_array($result)) :?>
         <tr>
-          <td><?php echo $row['schedule_id']; ?></td>
-          <td><?php echo $row['job_code']; ?></td>
-          <td><?php echo $row['status']; ?></td>
-          <td><?php echo $row['messages']; ?></td>
-          <td><?php echo $row['created_at']; ?></td>
-          <td><?php echo $row['scheduled_at']; ?></td>
-          <td><?php echo $row['executed_at']; ?></td>
-          <td><?php echo $row['finished_at']; ?></td>
+          <?php foreach ($fields_labels as $field => $label) :?>
+            <td><?php echo $row[$field]; ?></td>
+          <?php endforeach; ?>
         </tr>
       <?php endwhile; ?>
 
