@@ -38,8 +38,7 @@ if (file_exists('app/etc/local.xml')) {
   // Store the configuration in a more convenient format, a PHP array
   $confs = Array(
     "tblprefix" =>  $xml->global->resources->db->table_prefix,
-    //"dbhost" =>  $xml->global->resources->default_setup->connection->host,
-    "dbhost" => "localhost",
+    "dbhost" =>  $xml->global->resources->default_setup->connection->host,
     "dbuser" =>  $xml->global->resources->default_setup->connection->username,
     "dbpass" =>  $xml->global->resources->default_setup->connection->password,
     "dbname" =>  $xml->global->resources->default_setup->connection->dbname
