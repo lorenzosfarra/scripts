@@ -3,6 +3,8 @@
  * Add an additional attribute in a Magento order.
  * The example is about the platform from which the order was placed.
  *
+ * Example usage: $order->setOrderPlatform("iOS");
+ *
  * Author: Lorenzo Sfarra <lorenzosfarra@gmail.com>
  */
 
