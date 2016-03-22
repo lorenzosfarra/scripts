@@ -5,6 +5,8 @@
  *  
  *    System -> General -> Web -> Session Cookie Management -> Cookie path to "/"
  *
+ * After this, you can perform the login wherever you want, and you will be logged in in Magento, too
+ *
  * Author: Lorenzo Sfarra <lorenzosfarra@gmail.com>
  */
 
