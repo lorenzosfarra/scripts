@@ -28,11 +28,6 @@ if ($method == "GET") {
   }
 }
 
-/****
- *
- * FARE ATTENZIONE CHE ALL'ATTRIBUTO REQUIRED!
- */
-
 // SET UP MAGENTO
 define('MAGENTO', realpath(dirname(__FILE__)));
 require_once MAGENTO . '/app/Mage.php';
