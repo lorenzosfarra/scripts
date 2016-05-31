@@ -157,14 +157,14 @@ if ($isPostRequest) {
           <?php endif; ?>
         <?php endif; ?>
         <h1 class="bd-title">Change user password</h1>
-        <form method="POST" action="">
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <fieldset class="form-group">
             <label for="username">Username:</label>
-            <input name="username" class="form-control" placeholder="Enter username" type="email"/> 
+            <input id="username" name="username" class="form-control" placeholder="Enter username" type="email"/> 
           </fieldset>
           <fieldset class="form-group">
             <label for="pwd">Nuova password:</label>
-            <input name="pwd" class="form-control" placeholder="Enter password" type="password"/> 
+            <input id="pwd" name="pwd" class="form-control" placeholder="Enter password" type="password"/> 
             <small class="text-muted">Alpha-numeric characters</small>
           </fieldset>
           <button class="btn btn-primary" type="submit">Change password</button>
