@@ -21,15 +21,10 @@ $errors = false;
 $online = false;
 
 // TODO: BASIC AUTH || change this!
-if (!isset($_GET['authorized'])) {
-  $errors = true;
-  $result = "PERMISSION DENIED!";
-} else if ("true" != $_GET['authorized']) {
+if (!isset($_GET['authorized']) || ("true" != $_GET['authorized'])) {
   $errors = true;
   $result = "PERMISSION DENIED!";
 } else {
-  
-  
   // Get info about the store ID and website ID
   $storeid = Mage::app()->getStore()->getStoreId();
   $websiteId = Mage::getModel('core/store')->load($storeid)->getWebsiteId();
@@ -62,48 +57,19 @@ if (!isset($_GET['authorized'])) {
         padding: 15px 30px 15px 15px;
         border-left: 5px solid #eee;
       }
-      .bs-callout h1,
-      .bs-callout h2,
-      .bs-callout h3,
-      .bs-callout h4,
-      .bs-callout h5,
-      .bs-callout h6 {
+      .bs-callout h4 {
         margin-top: 0;
       }
       
-      .bs-callout-danger h1,
-      .bs-callout-danger h2,
-      .bs-callout-danger h3,
-      .bs-callout-danger h4,
-      .bs-callout-danger h5,
-      .bs-callout-danger h6 {
+      .bs-callout-danger h4 {
         color: #B94A48;
       }
       
-      .bs-callout-warning h1,
-      .bs-callout-warning h2,
-      .bs-callout-warning h3,
-      .bs-callout-warning h4,
-      .bs-callout-warning h5,
-      .bs-callout-warning h6 {
+      .bs-callout-warning h4 {
         color: #C09853;
       }
       
-      .bs-callout-info h1,
-      .bs-callout-info h2,
-      .bs-callout-info h3,
-      .bs-callout-info h4,
-      .bs-callout-info h5,
-      .bs-callout-info h6 {
-        color: #3A87AD;
-      }
-      
-      .bs-callout-success h1,
-      .bs-callout-success h2,
-      .bs-callout-success h3,
-      .bs-callout-success h4,
-      .bs-callout-success h5,
-      .bs-callout-success h6 {
+      .bs-callout-success h4 {
         color: #3C763D;
       }
       
@@ -160,7 +126,5 @@ if (!isset($_GET['authorized'])) {
         <?php endif; ?>
       </div>
     </div>
-    <!-- Import bootstrap JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"> </script>
   </body>
 </html>
