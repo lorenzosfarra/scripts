@@ -47,15 +47,18 @@ if (!isset($_GET['authorized']) || ("true" != $_GET['authorized'])) {
 <html>
   <head>
     <title>Check if a user is online</title>
-    <!-- Import bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" />
-    <!-- Callout from: https://gist.github.com/matthiasg/6153853#gistcomment-1182926 -->
     <style>
     /* Base styles (regardless of theme) */
       .bs-callout {
         margin: 20px 0;
         padding: 15px 30px 15px 15px;
         border-left: 5px solid #eee;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
       }
       .bs-callout h4 {
         margin-top: 0;
