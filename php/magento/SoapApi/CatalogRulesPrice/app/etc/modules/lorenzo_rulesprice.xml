@@ -1,0 +1,8 @@
+<config>
+  <modules>
+    <Lorenzo_Rulespriceapi>
+      <active>true</active>
+      <codePool>community</codePool>
+    </Lorenzo_Rulespriceapi>
+  </modules>
+</config>
