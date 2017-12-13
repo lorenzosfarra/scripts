@@ -1,0 +1,19 @@
+/**
+ * Author: Lorenzo Sfarra <lorenzosfarra@gmail.com>
+ * Some CSS...
+ */
+#payment-complete {
+  display: none;
+  color: green;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#payment-details {
+  padding: 20px;
+  background: #dfdfdf;
+}
+
+#spacing {
+  margin: 40px;
+}
