@@ -1,0 +1,19 @@
+<config>
+  <modules>
+    <Lorenzo_Rulespriceapi>
+      <version>1.0</version>
+    </Lorenzo_Rulespriceapi>
+  </modules>
+  <global>
+    <models>
+      <Rulespriceapi>
+        <class>Lorenzo_Rulespriceapi_Model</class>
+      </Rulespriceapi>
+    </models>
+    <helpers>
+      <Rulespriceapi>
+        <class>Lorenzo_Rulespriceapi_Helper</class>
+      </Rulespriceapi>
+    </helpers>
+  </global>
+</config>

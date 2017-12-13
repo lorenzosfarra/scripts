@@ -16,6 +16,8 @@ It's a PHP script to check if a user is online right now.
 # remove_all_clients_iterator_walk.php
 Use of the resource iterator and the walk() function on it for large collections.
 
+# SoapApi/CatalogRulesPrice
+Magento1.X - Catalog price rules in SOAP APIs
 
 
 # License
